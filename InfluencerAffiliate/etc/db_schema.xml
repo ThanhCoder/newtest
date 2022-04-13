@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Create table Influencer Information -->
+    <table name="influence_infor" resource="default" engine="innodb" comment="Infor Influence Table">
+        <!-- Basic Information -->
+        <column xsi:type="int" name="influencer_id" unsigned="true" nullable="true" identity="true"
+                comment="Influencer ID"/>
+         <column xsi:type="varchar" name="social_brand" nullable="false" length="255" 
+                comment="Social Brand"/>
+        <column xsi:type="int" name="status_id" unsigned="true" nullable="true" identity="false" default="1"
+                comment="Status ID - 1: Pending - 2: Approved - 3: Disapproved "/>
+        <column xsi:type="varchar" name="country" nullable="false" length="255" 
+                comment="Country of resident"/>
+        <column xsi:type="varchar" name="firstname" nullable="true" length="255" 
+                comment="First Name"/>
+        <column xsi:type="varchar" name="lastname" nullable="true" length="255" 
+                comment="Last Name"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" 
+                comment="Email"/>
+        <column xsi:type="varchar" name="telephone" nullable="false" length="255" 
+                comment="Phone Number"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <column xsi:type="timestamp" name="publish_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Publish Date"/>
+        <!-- Social Media  -->
+        <column xsi:type="varchar" name="hightest_follower" nullable="true" length="255" 
+                comment="Hightest Follower"/>
+        <column xsi:type="varchar" name="account_istagram" nullable="true" length="255" 
+                comment="Acount/URL Instagram"/>
+        <column xsi:type="varchar" name="total_engagement_istagram" nullable="true" length="255" 
+                comment="Acount/URL Instagram"/>
+        <column xsi:type="varchar" name="total_reach_istagram" nullable="true" length="255" 
+                comment="Acount/URL Instagram"/>
+        <column xsi:type="varchar" name="hightest_gender_follower" nullable="true" length="255" default="0"
+                comment=" 0 for Man and 1 for Women and 3 for Prefer Not To Answer"/>
+        <column xsi:type="varchar" name="hightest_country_follower" nullable="true" length="255" 
+                comment="Hightest Country Follower"/>  
+        <!-- Addition Information -->
+        <column xsi:type="varchar" name="other_system" nullable="true" length="255"
+                comment=" 0 for Yes and 1 for No"/>
+        <column xsi:type="varchar" name="collab_gla_before" nullable="true" length="255"
+                comment=" 0 for Yes and 1 for No"/>
+        <column xsi:type="varchar" name="invoice_eligible" nullable="true" length="255"
+                comment=" 0 for Yes and 1 for No"/>
+        <column xsi:type="varchar" name="taxpayer" nullable="true" length="255"
+                comment=" 0 for Yes and 1 for No"/>
+        <column xsi:type="varchar" name="paypal_infor" nullable="true" length="255"
+                comment=" 0 for Yes and 1 for No"/>
+        <!-- Addition Information In Admin Grid Management -->
+        <column xsi:type="varchar" name="comment" nullable="true" length="255" 
+                comment="Commnent"/>
+        <column xsi:type="varchar" name="user_access" nullable="true" length="255" 
+                comment="Admin User Access"/>        
+        <!-- Key  -->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="influencer_id"/>
+        </constraint>  
+    </table>
+
+        <!-- Table save history change  -->
+    <table name="history_change_influencer" resource="default" engine="innodb">
+        <column xsi:type="int" name="history_id" unsigned="true" nullable="false" identity="true"
+                comment="history ID"/>
+        <column xsi:type="int" name="influencer_id" unsigned="true" nullable="true" identity="false"
+                comment="influencer ID"/>
+        <column xsi:type="int" name="status_id" unsigned="true" nullable="true" identity="false"
+                comment="status ID"/>
+        <column xsi:type="varchar" name="comment" nullable="true" length="255"
+                comment="comment"/>
+        <column xsi:type="varchar" name="user_access" nullable="true" length="255" 
+                comment="Admin User Access"/>  
+        <column xsi:type="timestamp" name="publish_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Changed Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="history_id"/>
+        </constraint> 
+    </table>
+</schema>

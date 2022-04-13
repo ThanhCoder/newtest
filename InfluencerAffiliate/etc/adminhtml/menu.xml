@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="OpenTechiz_InfluencerAffiliate::manage_influencer_affliancer" title="Manage Influencer Affiliate Program" module="OpenTechiz_InfluencerAffiliate" sortOrder="25" resource="OpenTechiz_InfluencerAffiliate::manage_influencer_affliancer" parent="Magento_Backend::marketing"/>
+        <add id="OpenTechiz_InfluencerAffiliate::information_influencer_affliancer" title="Information Influencer Affiliate" module="OpenTechiz_InfluencerAffiliate"
+             action="influencer/affiliate/information" sortOrder="20" resource="OpenTechiz_InfluencerAffiliate::information_influencer_affliancer"
+             parent="OpenTechiz_InfluencerAffiliate::manage_influencer_affliancer"/>
+    </menu>
+</config>

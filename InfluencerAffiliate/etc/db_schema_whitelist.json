@@ -1,0 +1,45 @@
+{
+    "influence_infor": {
+        "column": {
+            "influencer_id": true,
+            "social_brand": true,
+            "status_id": true,
+            "country": true,
+            "firstname": true,
+            "lastname": true,
+            "email": true,
+            "telephone": true,
+            "created_at": true,
+            "updated_at": true,
+            "publish_date": true,
+            "hightest_follower": true,
+            "account_istagram": true,
+            "total_engagement_istagram": true,
+            "total_reach_istagram": true,
+            "hightest_gender_follower": true,
+            "hightest_country_follower": true,
+            "other_system": true,
+            "collab_gla_before": true,
+            "invoice_eligible": true,
+            "taxpayer": true,
+            "paypal_infor": true,
+            "comment": true,
+            "user_access": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "history_change_influencer": {
+        "column": {
+            "history_id": true,
+            "influencer_id": true,
+            "status_id": true,
+            "comment": true,
+            "publish_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

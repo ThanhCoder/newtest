@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="influencer_listing_data_source" xsi:type="string">
+                    OpenTechiz\InfluencerAffiliate\Model\ResourceModel\Influence\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="OpenTechiz\InfluencerAffiliate\Model\ResourceModel\Influence\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">influence_infor</argument>
+            <argument name="resourceModel" xsi:type="string">OpenTechiz\InfluencerAffiliate\Model\ResourceModel\Influence</argument>
+        </arguments>
+    </virtualType>
+
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="history_influencer_listing_data_source" xsi:type="string">
+                    OpenTechiz\InfluencerAffiliate\Model\ResourceModel\HistoryInfluence\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="OpenTechiz\InfluencerAffiliate\Model\ResourceModel\HistoryInfluence\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">history_change_influencer</argument>
+            <argument name="resourceModel" xsi:type="string">OpenTechiz\InfluencerAffiliate\Model\ResourceModel\HistoryInfluence</argument>
+        </arguments>
+    </virtualType>
+
+
+
+    <type name="OpenTechiz\InfluencerAffiliate\Ui\Component\MassAction\Status\Options">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">influencer/affiliate/massStatus</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translatable="true">Change Status</item>
+                    <item name="message" xsi:type="string" translatable="true">Are you sure to change?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

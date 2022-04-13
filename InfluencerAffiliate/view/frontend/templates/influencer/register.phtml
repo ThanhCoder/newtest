@@ -1,0 +1,319 @@
+<?php
+/** @var \OpenTechiz\InfluencerAffiliate\Block\Affiliate\Influencer $block */
+?>
+<div class="influencer-affiliate-lp">
+<div class="image_banner">
+<?php
+        $cmsblockdata = $block->getLayout()
+            ->createBlock(\Magento\Cms\Block\Block::class)
+            ->setBlockId('influence-banner-image')
+            ->toHtml();
+            if ($cmsblockdata) {
+            echo $cmsblockdata;}
+        ?>                                  
+</div>
+<h2><?php echo __('WELCOME ABOARD!') ?></h2>
+<div class="clear-253"></div>
+<div class="title-content">
+<h3><?php echo __('By filling in the form below, you can be one step closer to joining the GLAMIRA Influencer Affiliate Program!') ?></h3>
+</div>
+<div class="influencer-affiliate-form">
+    <div class="container">
+        <form class="form" action="<?= $block->getPostUrl() ?>" id="form-validate" enctype="multipart/form-data"
+              autocomplete="off" method="post" data-mage-init='{"validation":{}}'>
+            <h3><?php echo __('GENERAL INFORMATION') ?></h3>
+            <fieldset class="content-information">
+                <div class="fields">
+                    <div class="field required">
+                        <label class="form-label" for="firstname"><?php echo __('First Name') ?></label>
+                        <div class="control">
+                            <input type="text" name="firstname" id="firstname" class="input-text required-entry"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label class="form-label" for="lastname"><?php echo __('Last Name') ?></label>
+                        <div class="control">
+                            <input type="text" id="lastname" name="lastname" class="input-text required-entry"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field required">
+                        <label class="form-label" for="email"><?php echo __('Email') ?></label>
+                        <div class="control">
+                            <input type="text" id="email" name="email" class="input-text required-entry"
+                                   data-validate="{required:true, 'validate-email':true}"/>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label class="form-label" for="telephone"><?php echo __('Phone Number') ?></label>
+                        <div class="control">
+                            <input type="text" id="telephone" name="telephone" class="input-text required-entry"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field required">
+                        <label class="form-label" for="country"><?php echo __('Country Of Residence') ?></label>
+                        <div class="control">
+                            <input type="text" id="country" name="country" class="input-text required-entry"
+                                   data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="content-question">
+                <h3><?php echo __('Social media') ?></h3>
+                <div class="field-radio required">
+                    <label class="form-label"
+                           for="social_brand"><?php echo __('<span>1.</span> Which social media account of yours has the most followers?') ?></label>
+                    <div class="wrapper-control social">
+                        <?php foreach ($block->getBrandSocial() as $key => $post) { ?>
+                            <div class="control">
+                                <input class="input-text required-entry"
+                                       data-validate="{'validate-one-required-by-name':true}" type="radio"
+                                       name="social_brand" id="social_brand" value="<?php echo $post['value'] ?>"
+                                       aria-describedby="social_brand-error"/>
+                                <label class="form-check-label" for="social_brand"><?php echo $post['label']; ?></label>
+                            </div>
+                        <?php } ?>
+                        <div for="social_brand" generated="true" class="mage-error" id="social_brand-error"
+                             style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field required">
+                        <label class="form-label"
+                               for="hightest_follower"><?php echo __('<span>2.</span> How many followers do you have on your social media account with the highest number of followers?') ?></label>
+                        <div class="control">
+                            <input type="text" id="hightest_follower" name="hightest_follower"
+                                   class="input-text required-entry" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label class="form-label"
+                               for="account_istagram"><?php echo __('<span>3.</span> What is the username/link of your Instagram account?') ?></label>
+                        <div class="control">
+                            <input type="text" id="account_istagram" name="account_istagram"
+                                   class="input-text required-entry" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field required">
+                        <label class="form-label"
+                               for="total_engagement_istagram"><?php echo __('<span>4.</span> What is your total engagement on your Instagram account?') ?></label>
+                        <div class="control">
+                            <input type="text" id="total_engagement_istagram" name="total_engagement_istagram"
+                                   class="input-text required-entry" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label class="form-label"
+                               for="total_reach_istagram"><?php echo __('<span>5.</span> What is your total reach on your Instagram account?') ?></label>
+                        <div class="control">
+                            <input type="text" id="total_reach_istagram" name="total_reach_istagram"
+                                   class="input-text required-entry" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field field-selected required">
+                        <label class="form-label"
+                               for="country"><?php echo __('<span>6.</span> Which country has the highest percentage of followers on your Instagram account?') ?></label>
+                        <div class="control">
+                            <select class="input-text required-entry" data-validate="{required:true}"
+                                    name="hightest_country_follower">
+                                <option class="placeholder" value="" disabled selected
+                                        hidden><?php echo __('Select') ?></option>
+                                <?php
+                                foreach ($block->getCountryOption() as $key => $post) { ?>
+                                <option value="<?php echo $post['value'] ?>">
+                                    <?php echo $post['label'];
+                                    } ?>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field field-selected required">
+                        <label class="form-label"
+                               for="hightest_gender_follower"><?php echo __('<span>7.</span> Which gender has the highest percentage of followers on your Instagram account?') ?></label>
+                        <div class="control">
+                            <select class="input-text required-entry" data-validate="{required:true}"
+                                    name="hightest_gender_follower">
+                                <option class="placeholder" value="" disabled selected
+                                        hidden><?php echo __('Select') ?></option>
+                                <?php foreach ($block->getGenderOptions() as $key => $post) { ?>
+                                <option value="<?php echo $post['value'] ?>">
+                                    <?php echo $post['label'];
+                                    } ?>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="content-addition">
+                <h3><?php echo __('ADDITIONAL INFORMATION') ?></h3>
+                <div class="fields">
+                    <div class="field field-radio required">
+                        <label class="form-label"
+                               for="other_system"><?php echo __('<span>1.</span> Are you included in the affiliate system of another jewelry brand?') ?></label>
+                        <div class="wrapper-control">
+                            <?php foreach ($block->getQuestionSelect() as $key => $post) { ?>
+                                <div class="control">
+                                    <input class="input-text required-entry"
+                                           data-validate="{'validate-one-required-by-name':true}" type="radio"
+                                           name="other_system" id="other_system" value="<?php echo $post['value'] ?>"
+                                           aria-describedby="other_system-error"/>
+                                    <label class="form-check-label"
+                                           for="other_system"><?php echo $post['label']; ?></label>
+                                </div>
+                            <?php } ?>
+                            <div for="other_system" generated="true" class="mage-error" id="other_system-error"
+                                 style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="field field-radio required">
+                        <label class="form-label"
+                               for="collab_gla_before"><?php echo __('<span>2.</span> Have you ever collaborated with GLAMIRA before?') ?></label>
+                        <div class="wrapper-control">
+                            <?php foreach ($block->getQuestionSelect() as $key => $post) { ?>
+                                <div class="control">
+                                    <input class="input-text required-entry"
+                                           data-validate="{'validate-one-required-by-name':true}" type="radio"
+                                           name="collab_gla_before" id="collab_gla_before"
+                                           value="<?php echo $post['value'] ?>"
+                                           aria-describedby="collab_gla_before-error"/>
+                                    <label class="form-check-label"
+                                           for="collab_gla_before"><?php echo $post['label']; ?></label>
+                                </div>
+                            <?php } ?>
+                            <div for="collab_gla_before" generated="true" class="mage-error"
+                                 id="collab_gla_before-error" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="field field-radio required">
+                        <label class="form-label"
+                               for="country"><?php echo __('<span>3.</span> Are you a taxpayer in your country?') ?></label>
+                        <div class="wrapper-control">
+                            <?php foreach ($block->getQuestionSelect() as $key => $post) { ?>
+                                <div class="control">
+                                    <input class="input-text required-entry"
+                                           data-validate="{'validate-one-required-by-name':true}" type="radio"
+                                           name="taxpayer" id="taxpayer" value="<?php echo $post['value'] ?>"
+                                           aria-describedby="taxpayer-error"/>
+                                    <label class="form-check-label" for="taxpayer"><?php echo $post['label']; ?></label>
+                                </div>
+                            <?php } ?>
+                            <div for="taxpayer" generated="true" class="mage-error" id="taxpayer-error"
+                                 style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="field field-radio required">
+                        <label class="form-label"
+                               for="country"><?php echo __('<span>4.</span> Are you eligible for invoicing?') ?></label>
+                        <div class="wrapper-control">
+                            <?php foreach ($block->getQuestionSelect() as $key => $post) { ?>
+                                <div class="control">
+                                    <input class="validate-one-required-by-name"
+                                           data-validate="{'validate-one-required-by-name':true}" type="radio"
+                                           name="invoice_eligible" id="invoice_eligible"
+                                           value="<?php echo $post['value'] ?>"
+                                           aria-describedby="invoice_eligible-error"/>
+                                    <label class="form-check-label"
+                                           for="invoice_eligible"><?php echo $post['label']; ?></label>
+                                </div>
+                            <?php } ?>
+                            <div for="invoice_eligible" generated="true" class="mage-error" id="invoice_eligible-error"
+                                 style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field required paypal">
+                    <label class="form-label"
+                           for="paypal_infor"><?php echo __('<span>5.</span> Do you have a PayPal account? If yes, what is the email address where you can receive payment through PayPal?') ?></label>
+                    <div class="control">
+                        <input type="text" id="paypal_infor" name="paypal_infor" class="input-text required-entry"
+                               data-validate="{required:true}"/>
+                    </div>
+                </div>
+
+                <input type="hidden" name="success_page_id" value="<?php echo $block->getData('success_page_id') ?>">
+
+
+                <ol id="checkout-agreements" class="agreements checkout items checkout-agreements-new">
+                    <li class="item">
+                        <div class="agree">
+                            <input type="checkbox" id="custom-checkbox" name="custom_checkbox" value="1"
+                                   title="Terms &amp; Conditions" class="checkbox required-entry">
+                            <label for="custom-checkbox" class="label">
+                                <div class="agreement-text">
+                                    <a class="view-agreement-new"><?php echo __('I have read and accepted the <span>Terms & Conditions</span>') ?><em style="color:red;">*</em> </a>
+                            </label>
+                            <div class="term-modal" style="display: none;">
+                            <div id="term-influencer"> 
+                                <div class="content">
+                                    <?php
+                                    $cmsblockdata = $block->getLayout()
+                                        ->createBlock(\Magento\Cms\Block\Block::class)
+                                        ->setBlockId('popup-term-influencer')
+                                        ->toHtml();
+                                    if ($cmsblockdata) {
+                                        echo $cmsblockdata;
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </li>
+                </ol>
+            </fieldset>
+
+            <script type="text/x-magento-init">
+                {
+                    "#term-influencer": {
+                        "Magento_Ui/js/modal/modal": {
+                            "type": "popup",
+                            "modalClass": "popup-term-influencer new-close",
+                            "title": "MANAGEMENT CONTRACT",
+                            "trigger": ".view-agreement-new span",
+                            "responsive": true,
+                            "buttons": false
+                        }
+                    }
+                }
+            </script>
+
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary"
+                            title="<?= $block->escapeHtmlAttr(__('SUBMIT APPLICATION')) ?>">
+                        <span><?= $block->escapeHtml(__('SUBMIT APPLICATION')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="influencer-affiliate-lp">
+    <div class="image_banner">
+    <?php
+        $cmsblockdata = $block->getLayout()
+            ->createBlock(\Magento\Cms\Block\Block::class)
+            ->setBlockId('influence-banner-image')
+            ->toHtml();
+            if ($cmsblockdata) {
+            echo $cmsblockdata;}
+        ?> 
+    </div>
+    <div class="page-content">
+        <div class="success-page">
+            <div class="icon-success"></div>
+            <p class="message"><?php echo __('Thanks for your application to the GLAMIRA Influencer Affiliate Program. Our team of experts will evaluate your application and get back to you within a week.') ?></p>
+        </div>
+    </div>
+</div>

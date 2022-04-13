@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+      <css src="css/cms_page_view_critical.css"/>
+      <css src="css/cms_page_view.css"/>
+      <remove src="css/css_split_by_layout.css" />
+  </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="OpenTechiz\InfluencerAffiliate\Block\Affiliate\Influencer" name="OpenTechiz_InfluencerAffiliate_Register" template="OpenTechiz_InfluencerAffiliate::influencer/register_success.phtml" />
+        </referenceContainer>
+    </body>
+</page>
